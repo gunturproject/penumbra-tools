@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 5L0P-F1NG3RPR1NT: AI-assisted Android wrapper scaffold for the user's fork. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-feature android:name="android.hardware.usb.host" android:required="false" />
+
+    <application
+        android:allowBackup="false"
+        android:label="Penumbra Tools"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PenumbraTools">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
