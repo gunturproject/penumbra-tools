@@ -22,7 +22,7 @@ pub struct TuiConfig {
 
 impl Default for TuiConfig {
     fn default() -> Self {
-        Self { theme: "system".to_string(), compatibility_mode: false, show_stars: true }
+        Self { theme: "liquid_glass".to_string(), compatibility_mode: false, show_stars: true }
     }
 }
 

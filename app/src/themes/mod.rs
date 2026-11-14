@@ -9,6 +9,7 @@ use ratatui::style::{Color, Modifier, Style};
 mod catpuccin;
 mod froggy;
 mod gruvbox;
+mod liquid_glass;
 mod penumbra;
 mod rose_pine;
 
@@ -37,16 +38,16 @@ impl Default for Theme {
             name: "System",
             id: "system",
             is_dark: true,
-            background: Color::Reset,
-            foreground: Color::Gray,
-            highlight: Color::Black,
-            text: Color::Reset,
-            accent: Color::Cyan,
-            error: Color::Red,
-            warning: Color::Yellow,
-            info: Color::LightBlue,
-            success: Color::LightGreen,
-            muted: Color::DarkGray,
+            background: Color::Rgb(7, 12, 27),
+            foreground: Color::Rgb(22, 31, 53),
+            highlight: Color::Rgb(75, 139, 176),
+            text: Color::Rgb(229, 239, 250),
+            accent: Color::Rgb(137, 220, 235),
+            error: Color::Rgb(255, 126, 156),
+            warning: Color::Rgb(255, 211, 137),
+            info: Color::Rgb(175, 195, 255),
+            success: Color::Rgb(143, 226, 202),
+            muted: Color::Rgb(125, 148, 177),
         }
     }
 }
@@ -105,6 +106,7 @@ pub fn load_themes() -> ThemeRegistry {
     themes.insert("gruvbox_light", gruvbox::gruvbox_light);
     themes.insert("gruvbox_dark", gruvbox::gruvbox_dark);
     themes.insert("catppuccin_mocha", catpuccin::catppuccin_mocha);
+    themes.insert("liquid_glass", liquid_glass::liquid_glass);
     themes.insert("penumbra", penumbra::penumbra);
     themes.insert("froggy", froggy::froggy_dark);
 
