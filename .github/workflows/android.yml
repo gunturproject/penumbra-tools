@@ -37,6 +37,8 @@ jobs:
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/28.0.12433566" >> "$GITHUB_ENV"
           cargo install cargo-ndk --locked
       - name: Build Rust binary
+        env:
+          RUSTFLAGS: ""
         run: ./android/build-rust.sh
       - name: Build APK
         run: gradle -p android assembleDebug --no-daemon
