@@ -22,16 +22,15 @@ jobs:
       - uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           toolchain: nightly
-          targets: aarch64-linux-android
-      - uses: android-actions/setup-android@v3
+          target: aarch64-linux-android
       - name: Install NDK and Gradle
         run: |
+          yes | sdkmanager --licenses >/dev/null || true
           sdkmanager "platforms;android-35" "build-tools;35.0.0" "ndk;28.0.12433566"
-          echo "$ANDROID_HOME/cmdline-tools/latest/bin" >> "$GITHUB_PATH"
-          echo "$ANDROID_HOME/platform-tools" >> "$GITHUB_PATH"
+          curl -fsSL https://services.gradle.org/distributions/gradle-8.10.2-bin.zip -o /tmp/gradle.zip
+          unzip -q /tmp/gradle.zip -d /opt
+          echo "/opt/gradle-8.10.2/bin" >> "$GITHUB_PATH"
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/28.0.12433566" >> "$GITHUB_ENV"
-          sudo apt-get update
-          sudo apt-get install -y gradle
           cargo install cargo-ndk --locked
       - name: Build Rust binary
         run: ./android/build-rust.sh
