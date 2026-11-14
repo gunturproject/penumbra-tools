@@ -41,7 +41,7 @@ jobs:
           RUSTFLAGS: ""
         run: ./android/build-rust.sh
       - name: Build APK
-        run: gradle -p android assembleDebug --no-daemon
+        run: gradle -p android assembleDebug --no-daemon --stacktrace
       - uses: actions/upload-artifact@v4
         with:
           name: penumbra-tools-debug-apk
